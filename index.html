@@ -29,6 +29,8 @@
     }
   </script>
 
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
   <style>
     :root {
       --bg: #0c0c10;
@@ -1191,7 +1193,7 @@
         <div class="comparison-card transformation fi" style="grid-column: 1 / -1; display: flex;">
           <div class="comp-media" style="flex: 0 0 320px; min-width: 0;">
             <div class="comp-label">Physical Part</div>
-            <img src="example5/prius center tray.PNG" alt="3D Scanned Prius Center Tray - Boston 3D Printing Services">
+            <img src="example5/prius_center_tray.PNG" alt="3D Scanned Prius Center Tray - Boston 3D Printing Services">
             <div class="comp-info" style="margin-top:1rem;">
               <h3>Prius Center Tray</h3>
               <p>Showcasing the journey from physical part to custom-optimized design.</p>
@@ -1208,7 +1210,7 @@
             </div>
             <div class="comp-viewer">
               <div class="comp-label">2. Custom 3D Design</div>
-              <model-viewer class="custom-part" src="example5/prius center tray customized for sunglasses.glb"
+              <model-viewer class="custom-part" src="example5/prius_center_tray_sunglasses.glb"
                 alt="Custom Sunglasses Tray Design" auto-rotate orientation="90deg -90deg 90deg" camera-controls
                 min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%" shadow-intensity="1.5"
                 environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
@@ -1221,11 +1223,11 @@
         <div class="comparison-card fi">
           <div class="comp-media">
             <div class="comp-label">Original Photo</div>
-            <img src="example6/pirus center console.PNG" alt="3D Scanned Automotive Interior - Prius Center Console Boston">
+            <img src="example6/prius_center_console.PNG" alt="3D Scanned Automotive Interior - Prius Center Console Boston">
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
-            <model-viewer src="example6/pirus center console scan and cover.glb" alt="3D Scanned Prius Console"
+            <model-viewer src="example6/prius_center_console.glb" alt="3D Scanned Prius Console"
               auto-rotate camera-controls min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
               shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
             </model-viewer>
@@ -1260,11 +1262,11 @@
         <div class="comparison-card fi hidden-card">
           <div class="comp-media">
             <div class="comp-label">Original Photo</div>
-            <img src="example3/wheel cover.PNG" alt="Original Wheel Cover">
+            <img src="example3/wheel_cover.PNG" alt="Original Wheel Cover">
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
-            <model-viewer src="example3/wheel cover.compressed.glb" alt="3D Scanned Wheel Cover" auto-rotate
+            <model-viewer src="example3/wheel_cover.compressed.glb" alt="3D Scanned Wheel Cover" auto-rotate
               camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
               shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
             </model-viewer>
