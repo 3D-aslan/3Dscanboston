@@ -1,0 +1,15 @@
+# Ignore heavy original raw scans (over 25MB) to prevent Cloudflare build errors
+example3/wheel cover.glb
+example5/prius_center_tray.glb
+example5/"prius center tray.glb"
+
+# Keep the compressed versions
+!*.compressed.glb
+
+# Standard ignores
+.DS_Store
+Thumbs.db
+node_modules/
+.venv/
+build/
+dist/

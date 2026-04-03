@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3DScanBoston Studio — 3D Scanning, Design & Printing</title>
+  <meta name="description" content="3DScanBoston provides professional 3D scanning, 3D printing, and reverse engineering services in Boston, MA. High-precision CAD design and physical part replication.">
+  <meta name="keywords" content="3D Printing Boston, 3D Scanning Boston, Reverse Engineering Massachusetts, 3D scanning services MA, CAD design Boston, 3D scan to CAD">
+  <meta name="author" content="3DScanBoston">
+  <link rel="canonical" href="https://3dscanboston.com"> <!-- Placeholder URL -->
+  
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "3DScanBoston Studio",
+      "image": "https://3dscanboston.com/logo.png",
+      "description": "Professional 3D scanning, 3D printing and reverse engineering services serving the Greater Boston area.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Boston",
+        "addressRegion": "MA",
+        "shippingDetails": "Serving all of Massachusetts and New England"
+      },
+      "url": "https://3dscanboston.com",
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 09:00-18:00"
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0c0c10;
+      --surface: #131318;
+      --border: rgba(255, 255, 255, 0.08);
+      --accent: #00d4ff;
+      --text: #dddde8;
+      --muted: #666678;
+      --white: #ffffff;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Playfair Display', serif;
+      letter-spacing: -0.01em;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(12, 12, 16, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .logo em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #000 !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      font-size: 0.82rem;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.85 !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 57px;
+      left: 0;
+      right: 0;
+      background: rgba(12, 12, 16, 0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+      padding: 1.25rem 2rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 7rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      pointer-events: none;
+    }
+
+    .g1 {
+      width: 500px;
+      height: 500px;
+      background: var(--accent);
+      opacity: 0.07;
+      top: -80px;
+      left: -80px;
+    }
+
+    .g2 {
+      width: 350px;
+      height: 350px;
+      background: #7c3aed;
+      opacity: 0.07;
+      bottom: 0;
+      right: -60px;
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0, 212, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black, transparent);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: blink 2s ease infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.3
+      }
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    h1 .hl {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 440px;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 0.875rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-fill {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .btn-fill:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* HERO VISUAL — scan animation */
+    .hero-vis {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scan-box {
+      width: 480px;
+      height: 480px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.04), rgba(124, 58, 237, 0.04));
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 90vw;
+    }
+
+    @media (max-width: 768px) {
+      .scan-box {
+        width: 320px;
+        height: 320px;
+      }
+    }
+
+    .scan-obj {
+      font-size: 5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .scan-beam {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--accent) 30%, rgba(0, 212, 255, 0.8) 50%, var(--accent) 70%, transparent 100%);
+      box-shadow: 0 0 20px var(--accent), 0 0 40px rgba(0, 212, 255, 0.3);
+      animation: beam 3s ease-in-out infinite;
+      top: 10%;
+    }
+
+    @keyframes beam {
+      0% {
+        top: 10%;
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        top: 90%;
+        opacity: 0;
+      }
+    }
+
+    .scan-corner {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-color: var(--accent);
+      border-style: solid;
+      opacity: 0.6;
+    }
+
+    .sc-tl {
+      top: 14px;
+      left: 14px;
+      border-width: 2px 0 0 2px;
+    }
+
+    .sc-tr {
+      top: 14px;
+      right: 14px;
+      border-width: 2px 2px 0 0;
+    }
+
+    .sc-bl {
+      bottom: 14px;
+      left: 14px;
+      border-width: 0 0 2px 2px;
+    }
+
+    .sc-br {
+      bottom: 14px;
+      right: 14px;
+      border-width: 0 2px 2px 0;
+    }
+
+    .scan-dots {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(0, 212, 255, 0.15) 1px, transparent 1px);
+      background-size: 20px 20px;
+      mask-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5), transparent);
+    }
+
+    /* SERVICES ROW */
+    .services-row {
+      padding: 0 2rem 5rem;
+    }
+
+    .services-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .services-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.5rem 1.1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+    }
+
+    .chip:hover {
+      border-color: rgba(0, 212, 255, 0.3);
+      color: var(--text);
+    }
+
+    .chip.star {
+      border-color: rgba(0, 212, 255, 0.25);
+      color: var(--accent);
+    }
+
+    /* SECTION HEADER */
+    .sh {
+      margin-bottom: 2.5rem;
+    }
+
+    .sh-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.625rem;
+    }
+
+    .sh h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+    }
+
+    .sh p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      max-width: 520px;
+    }
+
+    /* EXAMPLES */
+    .examples-section {
+      padding: 5rem 2rem;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .examples-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .examples-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 480px) {
+      .examples-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .comparison-card {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 400px;
+    }
+
+    .comp-media {
+      position: relative;
+      height: 100%;
+      border-right: 1px solid var(--border);
+      background: #000;
+    }
+
+    .comp-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .comp-viewer {
+      position: relative;
+      background: radial-gradient(circle at center, #1a1a24 0%, #0c0c10 100%);
+      display: flex;
+      flex-direction: column;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+    }
+
+    .comp-label {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      z-index: 5;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+    }
+
+    .comp-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .comp-info h3 {
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .comp-info p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 860px) {
+      .comparison-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .comp-media {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        height: 160px;
+      }
+
+      .comp-viewer {
+        height: 240px;
+      }
+
+      .comp-info {
+        padding: 0.8rem;
+      }
+
+      .comp-info h3 {
+        font-size: 1rem;
+      }
+
+      .comp-info p {
+        font-size: 0.75rem;
+      }
+    }
+
+    .ex-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 4/3;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ex-card:hover {
+      transform: scale(1.02);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+
+    .ex-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.5;
+    }
+
+    .ex-placeholder .ico {
+      font-size: 2.25rem;
+    }
+
+    .ex-placeholder span {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    .ex-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .ex-card:hover .ex-overlay {
+      opacity: 1;
+    }
+
+    .ex-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    /* Transformation Split Viewer */
+    .comp-viewer-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .comp-viewer-split .comp-viewer {
+      height: 400px;
+    }
+
+    @media (max-width: 992px) {
+      .comparison-card.transformation {
+        flex-direction: column;
+      }
+
+      .comp-viewer-split {
+        grid-template-columns: 1fr;
+      }
+
+      .comp-viewer-split .comp-viewer {
+        height: 280px;
+      }
+    }
+
+    .hidden-card {
+      display: none;
+    }
+
+    .hidden-card.is-visible {
+      display: grid !important;
+    }
+
+    .show-more-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+      grid-column: 1 / -1;
+    }
+
+    /* PRICING */
+    .pricing-section {
+      padding: 5rem 2rem;
+    }
+
+    .pricing-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .price-note {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      background: rgba(0, 212, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 10px;
+      padding: 0.875rem 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .price-note p {
+      font-size: 0.825rem;
+      color: rgba(0, 212, 255, 0.8);
+      line-height: 1.5;
+    }
+
+    .price-note strong {
+      color: var(--accent);
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .pc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.625rem;
+      transition: all 0.25s;
+    }
+
+    .pc:hover {
+      border-color: rgba(0, 212, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .pc.featured {
+      border-color: rgba(0, 212, 255, 0.3);
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.04), rgba(124, 58, 237, 0.04));
+    }
+
+    .pc-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .pc h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.875rem;
+    }
+
+    .pc-price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .pc-from {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .pc-num {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .pc-to {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .pc ul {
+      list-style: none;
+      margin-bottom: 1.25rem;
+    }
+
+    .pc ul li {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pc ul li:last-child {
+      border: none;
+    }
+
+    .pc ul li::before {
+      content: '·';
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.2em;
+    }
+
+    /* QUOTE */
+    .quote-section {
+      padding: 5rem 2rem;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+
+    .quote-inner {
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .form-wrap {
+      margin-top: 2.5rem;
+    }
+
+    .fg {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .fg2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    input,
+    select,
+    textarea {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      padding: 0.7rem 0.9rem;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(0, 212, 255, 0.4);
+    }
+
+    select option {
+      background: #131318;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .upload-zone {
+      border: 1px dashed rgba(0, 212, 255, 0.2);
+      border-radius: 8px;
+      padding: 1.25rem;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s;
+      margin-bottom: 1.25rem;
+    }
+
+    .upload-zone:hover {
+      border-color: rgba(0, 212, 255, 0.4);
+      background: rgba(0, 212, 255, 0.02);
+    }
+
+    .upload-zone input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      background: none;
+      border: none;
+    }
+
+    .upload-zone p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .upload-zone p strong {
+      color: var(--accent);
+    }
+
+    .upload-fname {
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-top: 0.35rem;
+    }
+
+    .form-foot {
+      text-align: center;
+    }
+
+    .form-disc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
+    .ok-msg {
+      display: none;
+      background: rgba(0, 212, 255, 0.07);
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      border-radius: 10px;
+      padding: 1.1rem;
+      text-align: center;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2.5rem 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    footer a.logo {
+      font-size: 1rem;
+    }
+
+    footer span {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* SCROLL OFFSET — so fixed nav doesn't cover sections */
+    #examples,
+    #pricing,
+    #quote {
+      scroll-margin-top: 70px;
+    }
+
+    /* SCROLL FADE */
+    .fi {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .fi.vis {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+      }
+
+      .hero-sub {
+        margin: 0 auto 2rem;
+      }
+
+      .hero-btns {
+        justify-content: center;
+      }
+
+      .hero-vis {
+        order: -1;
+      }
+
+      .scan-box {
+        width: 220px;
+        height: 220px;
+      }
+
+      .scan-obj {
+        font-size: 3.8rem;
+      }
+
+      .examples-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .fg2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding: 6rem 1.25rem 4rem;
+      }
+
+      .examples-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-row,
+      .examples-section,
+      .pricing-section,
+      .quote-section {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo">Scan<em>Craft</em></a>
+    <ul class="nav-links">
+      <li><a href="#examples">Work</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mm">
+    <a href="#examples" onclick="document.getElementById('mm').classList.remove('open')">Work</a>
+    <a href="#pricing" onclick="document.getElementById('mm').classList.remove('open')">Pricing</a>
+    <a href="#quote" onclick="document.getElementById('mm').classList.remove('open')">Get a Quote →</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow g1"></div>
+    <div class="hero-glow g2"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag"><span class="dot"></span> 3D Scanning · Design · Printing</div>
+        <h1>We scan it.<br>We design it.<br><span class="hl">We print it.</span></h1>
+        <p class="hero-sub">From reverse engineering broken parts to recreating missing symmetric pieces — we handle
+          every step with precision you can measure.</p>
+        <div class="hero-btns">
+          <a href="#quote" class="btn btn-fill">Get a Free Quote →</a>
+          <a href="#examples" class="btn btn-ghost">See Our Work</a>
+        </div>
+      </div>
+      <div class="hero-vis">
+        <div class="scan-box"
+          style="overflow: visible; background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%);">
+          <div class="scan-dots"></div>
+          <div class="scan-corner sc-tl"></div>
+          <div class="scan-corner sc-tr"></div>
+          <div class="scan-corner sc-bl"></div>
+          <div class="scan-corner sc-br"></div>
+
+          <!-- HERO 3D MODEL -->
+          <model-viewer src="example1/isofix.compressed.glb" alt="Hero 3D Scan" auto-rotate rotation-speed="0.5"
+            camera-controls disable-pan disable-zoom interaction-prompt="none" shadow-intensity="2"
+            environment-image="neutral" exposure="0.8"
+            style="width: 100%; height: 100%; position: absolute; inset: 0; --progress-bar-color: var(--accent);">
+          </model-viewer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES CHIPS -->
+  <div class="services-row">
+    <div class="services-inner">
+      <div class="services-chips fi">
+        <div class="chip star">⭐ Symmetry Restoration</div>
+        <div class="chip">📡 3D Scanning</div>
+        <div class="chip">⚙️ Reverse Engineering</div>
+        <div class="chip">🖨️ 3D Printing</div>
+        <div class="chip">✏️ Custom Design</div>
+        <div class="chip">🔍 Part Inspection</div>
+      </div>
+      <div class="sh fi">
+        <div class="sh-tag">What We Do</div>
+        <h2>Professional 3D Scanning & 3D Printing in Boston</h2>
+        <p>Expert 3D scanning and digital fabrication services across Massachusetts. We specialize in symmetry
+          restoration, reverse engineering, and custom 3D printing solutions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAMPLES -->
+  <section class="examples-section" id="examples">
+    <div class="examples-inner">
+      <div class="sh fi">
+        <div class="sh-tag">Recent Work</div>
+        <h2>A few things we've made</h2>
+        <p>Replace these placeholders with your real project photos — just swap the backgrounds.</p>
+      </div>
+      <div class="examples-grid">
+        <!-- SCAN TO CUSTOM Example (Prius Tray) -->
+        <div class="comparison-card transformation fi" style="grid-column: 1 / -1; display: flex;">
+          <div class="comp-media" style="flex: 0 0 320px; min-width: 0;">
+            <div class="comp-label">Physical Part</div>
+            <img src="example5/prius center tray.PNG" alt="3D Scanned Prius Center Tray - Boston 3D Printing Services">
+            <div class="comp-info" style="margin-top:1rem;">
+              <h3>Prius Center Tray</h3>
+              <p>Showcasing the journey from physical part to custom-optimized design.</p>
+            </div>
+          </div>
+          <div class="comp-viewer-split" style="flex: 1;">
+            <div class="comp-viewer">
+              <div class="comp-label">1. Raw 3D Scan</div>
+              <model-viewer src="example5/prius_center_tray.compressed.glb" alt="3D Scan of Prius Tray in Boston" auto-rotate
+                orientation="180deg 0deg 0deg" camera-controls min-camera-orbit="auto auto 90%"
+                max-camera-orbit="auto auto 200%" shadow-intensity="1.5" environment-image="neutral" exposure="0.7"
+                loading="lazy" touch-action="pan-y">
+              </model-viewer>
+            </div>
+            <div class="comp-viewer">
+              <div class="comp-label">2. Custom 3D Design</div>
+              <model-viewer class="custom-part" src="example5/prius center tray customized for sunglasses.glb"
+                alt="Custom Sunglasses Tray Design" auto-rotate orientation="90deg -90deg 90deg" camera-controls
+                min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%" shadow-intensity="1.5"
+                environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
+              </model-viewer>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRIUS CONSOLE Example -->
+        <div class="comparison-card fi">
+          <div class="comp-media">
+            <div class="comp-label">Original Photo</div>
+            <img src="example6/pirus center console.PNG" alt="3D Scanned Automotive Interior - Prius Center Console Boston">
+          </div>
+          <div class="comp-viewer">
+            <div class="comp-label">Interactive 3D Scan</div>
+            <model-viewer src="example6/pirus center console scan and cover.glb" alt="3D Scanned Prius Console"
+              auto-rotate camera-controls min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
+              shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
+            </model-viewer>
+            <div class="comp-info">
+              <h3>Prius Center Console</h3>
+              <p>Comprehensive interior scan for custom trim design and structural modifications.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FENDER FLARE Example -->
+        <div class="comparison-card fi">
+          <div class="comp-media">
+            <div class="comp-label">Original Photo</div>
+            <img src="example2/chevy fender flare.PNG" alt="Original Fender Flare">
+          </div>
+          <div class="comp-viewer">
+            <div class="comp-label">Interactive 3D Scan</div>
+            <model-viewer src="example2/fenderflare.compressed.glb" alt="3D Scanned Fender Flare" auto-rotate
+              camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
+              shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
+            </model-viewer>
+            <div class="comp-info">
+              <h3>Chevy Fender Flare</h3>
+              <p>Symmetry restoration: original part was missing the opposite side; digitally mirrored for a perfect
+                fit.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- WHEEL COVER Example -->
+        <div class="comparison-card fi hidden-card">
+          <div class="comp-media">
+            <div class="comp-label">Original Photo</div>
+            <img src="example3/wheel cover.PNG" alt="Original Wheel Cover">
+          </div>
+          <div class="comp-viewer">
+            <div class="comp-label">Interactive 3D Scan</div>
+            <model-viewer src="example3/wheel cover.compressed.glb" alt="3D Scanned Wheel Cover" auto-rotate
+              camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
+              shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
+            </model-viewer>
+            <div class="comp-info">
+              <h3>Custom Wheel Cover</h3>
+              <p>Detailed geometry capture for aerodynamic testing and bespoke manufacturing.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ISOFIX Example -->
+        <div class="comparison-card fi hidden-card">
+          <div class="comp-media">
+            <div class="comp-label">Original Photo</div>
+            <img src="example1/20251209_122855.jpg" alt="Original ISOFIX Seat">
+          </div>
+          <div class="comp-viewer">
+            <div class="comp-label">Interactive 3D Scan</div>
+            <model-viewer src="example1/isofix.compressed.glb" alt="3D Scanned ISOFIX Seatbelt" auto-rotate
+              camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
+              shadow-intensity="1.5" environment-image="neutral" exposure="0.7" touch-action="pan-y">
+            </model-viewer>
+            <div class="comp-info">
+              <h3>ISOFIX Child Seat Bracket</h3>
+              <p>Precise 3D scan and digital replication for manufacturing replacement safety hardware.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- KEYFOB Example -->
+        <div class="comparison-card fi hidden-card">
+          <div class="comp-media">
+            <div class="comp-label">Original Photo</div>
+            <img src="example4/keyfob.jpg" alt="Original Keyfob">
+          </div>
+          <div class="comp-viewer">
+            <div class="comp-label">Interactive 3D Scan</div>
+            <model-viewer src="example4/keyfob.glb" alt="3D Scanned Keyfob" auto-rotate orientation="0deg 90deg 0deg"
+              camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
+              shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
+            </model-viewer>
+            <div class="comp-info">
+              <h3>Automotive Keyfob</h3>
+              <p>Precision small-scale scanning for replacement shell design and prototyping.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show More Button -->
+      <div class="show-more-container fi">
+        <button id="toggleWorks" class="btn btn-ghost" onclick="toggleWorks()">See All Projects ↓</button>
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <div class="pricing-inner">
+      <div class="sh fi">
+        <div class="sh-tag">Pricing</div>
+        <h2>Real numbers, upfront.</h2>
+        <p>Most 3D services hide their prices. We don't. These are honest averages — your exact quote is always free.
+        </p>
+      </div>
+
+      <div class="price-note fi">
+        <span>💡</span>
+        <p>Prices vary by size and complexity. These ranges help you plan — <strong>every quote is free and
+            non-binding.</strong></p>
+      </div>
+
+      <div class="price-grid">
+        <div class="pc fi">
+          <div class="pc-label">3D Scanning</div>
+          <h3>Object Scanning</h3>
+          <div class="pc-price"><span class="pc-from">from</span><span class="pc-num">$49</span><span class="pc-to">–
+              $299</span></div>
+          <ul>
+            <li>Small objects from $49</li>
+            <li>Medium $80 – $150</li>
+            <li>Large / complex from $200</li>
+            <li>STL, OBJ, or STEP file</li>
+          </ul>
+          <a href="#quote" class="btn btn-ghost" style="width:100%;justify-content:center;font-size:0.82rem;">Request
+            Quote</a>
+        </div>
+
+        <div class="pc featured fi">
+          <div class="pc-label">Most Popular</div>
+          <h3>Reverse Engineering & Symmetry</h3>
+          <div class="pc-price"><span class="pc-from">from</span><span class="pc-num">$99</span><span class="pc-to">–
+              $499</span></div>
+          <ul>
+            <li>Simple parts from $99</li>
+            <li>Symmetry restoration from $129</li>
+            <li>Complex assemblies from $300</li>
+            <li>Editable CAD files included</li>
+          </ul>
+          <a href="#quote" class="btn btn-fill" style="width:100%;justify-content:center;font-size:0.82rem;">Request
+            Quote</a>
+        </div>
+
+        <div class="pc fi">
+          <div class="pc-label">3D Printing</div>
+          <h3>Print & Finish</h3>
+          <div class="pc-price"><span class="pc-from">from</span><span class="pc-num">$15</span><span class="pc-to">–
+              $250</span></div>
+          <ul>
+            <li>Small prints from $15</li>
+            <li>Functional parts $40 – $120</li>
+            <li>Large prints from $150</li>
+            <li>PLA, ASA, TPU</li>
+          </ul>
+          <a href="#quote" class="btn btn-ghost" style="width:100%;justify-content:center;font-size:0.82rem;">Request
+            Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section" id="quote">
+    <div class="quote-inner">
+      <div class="sh fi" style="text-align:center;">
+        <div class="sh-tag">Free Quote</div>
+        <h2>Tell us what you need.</h2>
+        <p style="margin:0 auto;">We'll reply within 24 hours with a clear price. Upload a photo if you have one — any
+          image helps.</p>
+      </div>
+      <div class="form-wrap fi">
+        <div class="fg2" id="qForm">
+          <div class="fg"><label>First Name</label><input type="text" placeholder="Jane" /></div>
+          <div class="fg"><label>Email</label><input type="email" id="qEmail" placeholder="you@example.com" /></div>
+        </div>
+        <div class="fg" id="qForm2">
+          <label>Service Needed</label>
+          <select id="qService">
+            <option value="" disabled selected>Select a service…</option>
+            <option>3D Scanning</option>
+            <option>Reverse Engineering / CAD</option>
+            <option>Symmetry Restoration</option>
+            <option>3D Printing</option>
+            <option>Custom 3D Design</option>
+            <option>Not sure — please advise</option>
+          </select>
+        </div>
+        <div class="fg" id="qForm3">
+          <label>Project Description</label>
+          <textarea id="qDesc"
+            placeholder="What's the object? What do you need done? Any size, material, or deadline info is helpful."></textarea>
+        </div>
+        <div class="upload-zone" id="qForm4">
+          <input type="file" accept="image/*,.pdf,.stl,.obj,.step"
+            onchange="document.getElementById('ufn').textContent='📎 '+this.files[0].name" />
+          <p>📎 <strong>Upload a photo or file</strong> (optional)</p>
+          <p>Images, PDF, STL, STEP · max 20MB</p>
+          <div class="upload-fname" id="ufn"></div>
+        </div>
+        <div class="form-foot">
+          <button class="btn btn-fill" onclick="submitQ()" style="padding:0.9rem 2.25rem;font-size:0.9rem;">Send Request
+            →</button>
+          <p class="form-disc">🔒 Free & non-binding. We never share your info.</p>
+        </div>
+        <div class="ok-msg" id="okMsg">✅ Sent! We'll reply within 24 hours.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="logo">Scan<em style="color:var(--accent);font-style:normal">Craft</em></a>
+    <span>© 2025 ScanCraft Studio · Precise. Honest. Fast.</span>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const io = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          const idx = Array.from(e.target.parentElement?.children || []).indexOf(e.target);
+          setTimeout(() => e.target.classList.add('vis'), idx * 70);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+    // Quote submit
+    function submitQ() {
+      const email = document.getElementById('qEmail').value;
+      const svc = document.getElementById('qService').value;
+      const desc = document.getElementById('qDesc').value;
+      if (!email || !svc || !desc) { alert('Please fill in your email, service, and description.'); return; }
+      ['qForm', 'qForm2', 'qForm3', 'qForm4'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) { el.style.opacity = '0.35'; el.style.pointerEvents = 'none'; }
+      });
+      document.querySelector('.form-foot').style.display = 'none';
+      document.getElementById('okMsg').style.display = 'block';
+    }
+
+    // Toggle hidden works
+    function toggleWorks() {
+      const hiddenCards = document.querySelectorAll('.hidden-card');
+      const btn = document.getElementById('toggleWorks');
+      let showing = false;
+
+      hiddenCards.forEach(card => {
+        card.classList.toggle('is-visible');
+        if (card.classList.contains('is-visible')) showing = true;
+      });
+
+      btn.innerText = showing ? 'See Fewer Projects ↑' : 'See All Projects ↓';
+    }
+
+    // 3D Model Styling - Apply technical blue/white "Edge Faces" look to all viewers
+    document.querySelectorAll('model-viewer').forEach(mv => {
+      mv.addEventListener('load', () => {
+        const isCustom = mv.classList.contains('custom-part');
+
+        // 1. Set material color
+        if (mv.model && mv.model.materials) {
+          mv.model.materials.forEach(material => {
+            if (isCustom) {
+              // Production Matte Black/Gray look
+              material.pbrMetallicRoughness.setBaseColorFactor([0.15, 0.15, 0.15, 1]);
+              material.pbrMetallicRoughness.setMetallicFactor(0.1);
+              material.pbrMetallicRoughness.setRoughnessFactor(0.9);
+            } else {
+              // Deep technical blue
+              material.pbrMetallicRoughness.setBaseColorFactor([0.1, 0.25, 0.5, 1]);
+              material.pbrMetallicRoughness.setMetallicFactor(0.2);
+              material.pbrMetallicRoughness.setRoughnessFactor(0.7);
+            }
+          });
+        }
+
+        // 2. Add the "Edge Faces" wireframe overlay (Scans only)
+        if (!isCustom) {
+          const symbol = Object.getOwnPropertySymbols(mv).find(s => s.description === 'scene');
+          if (symbol && mv[symbol]) {
+            const scene = mv[symbol];
+            scene.model.traverse((obj) => {
+              if (obj.isMesh && !obj.userData.isWireframeClone) {
+                const wireframeClone = obj.clone();
+                wireframeClone.userData.isWireframeClone = true;
+                wireframeClone.material = obj.material.clone();
+                wireframeClone.material.wireframe = true;
+                wireframeClone.material.color.setHex(0xffffff); // White wireframe
+                wireframeClone.material.opacity = 0.3;
+                wireframeClone.material.transparent = true;
+                obj.parent.add(wireframeClone);
+              }
+            });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
