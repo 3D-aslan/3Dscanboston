@@ -5,11 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3DScanBoston Studio — 3D Scanning, Design & Printing</title>
-  <meta name="description" content="3DScanBoston provides professional 3D scanning, 3D printing, and reverse engineering services in Boston, MA. High-precision CAD design and physical part replication.">
-  <meta name="keywords" content="3D Printing Boston, 3D Scanning Boston, Reverse Engineering Massachusetts, 3D scanning services MA, CAD design Boston, 3D scan to CAD">
+  <meta name="description"
+    content="3DScanBoston provides professional 3D scanning, 3D printing, and reverse engineering services in Boston, MA. High-precision CAD design and physical part replication.">
+  <meta name="keywords"
+    content="3D Printing Boston, 3D Scanning Boston, Reverse Engineering Massachusetts, 3D scanning services MA, CAD design Boston, 3D scan to CAD">
   <meta name="author" content="3DScanBoston">
   <link rel="canonical" href="https://3dscanboston.com"> <!-- Placeholder URL -->
-  
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -1150,7 +1152,7 @@
           <div class="scan-corner sc-br"></div>
 
           <!-- HERO 3D MODEL -->
-          <model-viewer src="example1/isofix.compressed.glb" alt="Hero 3D Scan" auto-rotate rotation-speed="0.5"
+          <model-viewer src="example1/isofix_web.glb" alt="Hero 3D Scan" auto-rotate rotation-speed="0.5"
             camera-controls disable-pan disable-zoom interaction-prompt="none" shadow-intensity="2"
             environment-image="neutral" exposure="0.8"
             style="width: 100%; height: 100%; position: absolute; inset: 0; --progress-bar-color: var(--accent);">
@@ -1193,7 +1195,7 @@
         <div class="comparison-card transformation fi" style="grid-column: 1 / -1; display: flex;">
           <div class="comp-media" style="flex: 0 0 320px; min-width: 0;">
             <div class="comp-label">Physical Part</div>
-            <img src="example5/prius_center_tray.PNG" alt="3D Scanned Prius Center Tray - Boston 3D Printing Services">
+            <img src="example5/prius_tray_web.PNG" alt="3D Scanned Prius Center Tray - Boston 3D Printing Services">
             <div class="comp-info" style="margin-top:1rem;">
               <h3>Prius Center Tray</h3>
               <p>Showcasing the journey from physical part to custom-optimized design.</p>
@@ -1202,15 +1204,15 @@
           <div class="comp-viewer-split" style="flex: 1;">
             <div class="comp-viewer">
               <div class="comp-label">1. Raw 3D Scan</div>
-              <model-viewer src="example5/prius_center_tray.compressed.glb" alt="3D Scan of Prius Tray in Boston" auto-rotate
-                orientation="180deg 0deg 0deg" camera-controls min-camera-orbit="auto auto 90%"
+              <model-viewer src="example5/prius_tray_web.glb" alt="3D Scan of Prius Tray in Boston"
+                auto-rotate orientation="180deg 0deg 0deg" camera-controls min-camera-orbit="auto auto 90%"
                 max-camera-orbit="auto auto 200%" shadow-intensity="1.5" environment-image="neutral" exposure="0.7"
                 loading="lazy" touch-action="pan-y">
               </model-viewer>
             </div>
             <div class="comp-viewer">
               <div class="comp-label">2. Custom 3D Design</div>
-              <model-viewer class="custom-part" src="example5/prius_center_tray_sunglasses.glb"
+              <model-viewer class="custom-part" src="example5/prius_sunglasses_web.glb"
                 alt="Custom Sunglasses Tray Design" auto-rotate orientation="90deg -90deg 90deg" camera-controls
                 min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%" shadow-intensity="1.5"
                 environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
@@ -1223,11 +1225,12 @@
         <div class="comparison-card fi">
           <div class="comp-media">
             <div class="comp-label">Original Photo</div>
-            <img src="example6/prius_center_console.PNG" alt="3D Scanned Automotive Interior - Prius Center Console Boston">
+            <img src="example6/prius_console_web.PNG"
+              alt="3D Scanned Automotive Interior - Prius Center Console Boston">
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
-            <model-viewer src="example6/prius_center_console.glb" alt="3D Scanned Prius Console"
+            <model-viewer src="example6/prius_console_web.glb" alt="3D Scanned Prius Console"
               auto-rotate camera-controls min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
               shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
             </model-viewer>
@@ -1242,11 +1245,11 @@
         <div class="comparison-card fi">
           <div class="comp-media">
             <div class="comp-label">Original Photo</div>
-            <img src="example2/chevy fender flare.PNG" alt="Original Fender Flare">
+            <img src="example2/fenderflare_web.PNG" alt="Original Fender Flare">
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
-            <model-viewer src="example2/fenderflare.compressed.glb" alt="3D Scanned Fender Flare" auto-rotate
+            <model-viewer src="example2/fenderflare_web.glb" alt="3D Scanned Fender Flare" auto-rotate
               camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
               shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
             </model-viewer>
@@ -1262,11 +1265,11 @@
         <div class="comparison-card fi hidden-card">
           <div class="comp-media">
             <div class="comp-label">Original Photo</div>
-            <img src="example3/wheel_cover.PNG" alt="Original Wheel Cover">
+            <img src="example3/wheel_cover_web.PNG" alt="Original Wheel Cover">
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
-            <model-viewer src="example3/wheel_cover.compressed.glb" alt="3D Scanned Wheel Cover" auto-rotate
+            <model-viewer src="example3/wheel_cover_web.glb" alt="3D Scanned Wheel Cover" auto-rotate
               camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
               shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
             </model-viewer>
@@ -1285,7 +1288,7 @@
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
-            <model-viewer src="example1/isofix.compressed.glb" alt="3D Scanned ISOFIX Seatbelt" auto-rotate
+            <model-viewer src="example1/isofix_web.glb" alt="3D Scanned ISOFIX Seatbelt" auto-rotate
               camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
               shadow-intensity="1.5" environment-image="neutral" exposure="0.7" touch-action="pan-y">
             </model-viewer>
@@ -1300,11 +1303,11 @@
         <div class="comparison-card fi hidden-card">
           <div class="comp-media">
             <div class="comp-label">Original Photo</div>
-            <img src="example4/keyfob.jpg" alt="Original Keyfob">
+            <img src="example4/keyfob_web.PNG" alt="Original Keyfob">
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
-            <model-viewer src="example4/keyfob.glb" alt="3D Scanned Keyfob" auto-rotate orientation="0deg 90deg 0deg"
+            <model-viewer src="example4/keyfob_web.glb" alt="3D Scanned Keyfob" auto-rotate orientation="0deg 90deg 0deg"
               camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
               shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
             </model-viewer>
@@ -1440,8 +1443,8 @@
 
   <!-- FOOTER -->
   <footer>
-    <a href="#" class="logo">Scan<em style="color:var(--accent);font-style:normal">Craft</em></a>
-    <span>© 2025 ScanCraft Studio · Precise. Honest. Fast.</span>
+    <a href="#" class="logo">3DScan<em style="color:var(--accent);font-style:normal">Boston</em></a>
+    <span>© 2025 3DScanBoston Studio · Precise. Honest. Fast.</span>
   </footer>
 
   <script>
