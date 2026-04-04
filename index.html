@@ -1410,7 +1410,8 @@
       <div class="form-wrap fi">
         <div class="fg2" id="qForm">
           <div class="fg"><label>First Name</label><input type="text" name="name" id="qName" placeholder="Jane" /></div>
-          <div class="fg"><label>Email</label><input type="email" name="email" id="qEmail" placeholder="you@example.com" /></div>
+          <div class="fg"><label>Email</label><input type="email" name="email" id="qEmail"
+              placeholder="you@example.com" /></div>
         </div>
         <div class="fg" id="qForm2">
           <label>Service Needed</label>
@@ -1443,7 +1444,8 @@
             </div>
             <p id="prog-txt" style="font-size:12px; margin-top:8px; opacity:0.7; text-align:center;">Preparing...</p>
           </div>
-          <button class="btn btn-fill" onclick="submitQ()" style="padding:0.9rem 2.25rem;font-size:0.9rem;">Send Request →</button>
+          <button class="btn btn-fill" onclick="submitQ()" style="padding:0.9rem 2.25rem;font-size:0.9rem;">Send Request
+            →</button>
           <p class="form-disc">🔒 Free & non-binding. We never share your info.</p>
         </div>
         <div class="ok-msg" id="okMsg">✅ Sent! We'll reply within 24 hours.</div>
@@ -1502,22 +1504,22 @@
       const files = Array.from(fileInput.files);
 
       if (!name || !email || !svc || !desc) { alert('Please fill in your name, email, service, and description.'); return; }
-      
+
       // Validation: Count
       if (files.length > 5) { alert('Max 5 files allowed.'); return; }
-      
+
       // Validation: Total Size (18MB limit to account for Base64 overhead)
       const totalSize = files.reduce((acc, f) => acc + f.size, 0);
-      if (totalSize > 18 * 1024 * 1024) { 
-        alert('Total file size too large. Please limit to 18MB total.'); 
-        return; 
+      if (totalSize > 18 * 1024 * 1024) {
+        alert('Total file size too large. Please limit to 18MB total.');
+        return;
       }
 
       const btn = document.querySelector('.btn-fill');
       const progWrap = document.getElementById('prog-wrap');
       const progBar = document.getElementById('prog-bar');
       const progTxt = document.getElementById('prog-txt');
-      
+
       const originalText = btn.innerText;
       btn.innerText = 'Processing...';
       btn.disabled = true;
@@ -1554,7 +1556,7 @@
           method: 'POST',
           mode: 'no-cors',
           body: JSON.stringify(payload),
-          headers: { 'Content-Type': 'application/json' }
+          headers: { 'Content-Type': 'text/plain' }
         });
 
         // Simulating the final upload finish

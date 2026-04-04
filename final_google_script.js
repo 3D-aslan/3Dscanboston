@@ -23,7 +23,7 @@ function doPost(e) {
     });
 
     MailApp.sendEmail({
-      to: "info@3dscanboston.com",
+      to: "3dscanboston@gmail.com",
       subject: "New Quote Request: " + service + " from " + name,
       replyTo: email,
       body: body,
