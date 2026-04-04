@@ -704,15 +704,21 @@
     .comp-viewer-split .comp-viewer {
       height: auto;
       aspect-ratio: 1 / 1;
+      max-width: 360px;
+      margin: 0 auto;
+      width: 100%;
     }
 
     @media (max-width: 992px) {
       .comparison-card.transformation {
         flex-direction: column;
+        align-items: center;
       }
 
       .comp-viewer-split {
         grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 400px;
       }
 
       .comp-viewer-split .comp-viewer {
