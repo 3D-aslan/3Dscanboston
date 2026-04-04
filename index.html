@@ -565,6 +565,10 @@
     model-viewer {
       width: 100%;
       height: 100%;
+      cursor: zoom-in;
+    }
+
+    model-viewer:not([disable-zoom]) {
       cursor: grab;
     }
 
@@ -1110,7 +1114,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="logo">Scan<em>Craft</em></a>
+    <a href="#" class="logo">3DScan<em>Boston</em></a>
     <ul class="nav-links">
       <li><a href="#examples">Work</a></li>
       <li><a href="#pricing">Pricing</a></li>
@@ -1204,8 +1208,8 @@
           <div class="comp-viewer-split" style="flex: 1;">
             <div class="comp-viewer">
               <div class="comp-label">1. Raw 3D Scan</div>
-              <model-viewer src="example5/prius_tray_web.glb" alt="3D Scan of Prius Tray in Boston"
-                auto-rotate orientation="180deg 0deg 0deg" camera-controls min-camera-orbit="auto auto 90%"
+              <model-viewer src="example5/prius_tray_web.glb" alt="3D Scan of Prius Tray in Boston" auto-rotate
+                orientation="180deg 0deg 0deg" camera-controls disable-zoom min-camera-orbit="auto auto 90%"
                 max-camera-orbit="auto auto 200%" shadow-intensity="1.5" environment-image="neutral" exposure="0.7"
                 loading="lazy" touch-action="pan-y">
               </model-viewer>
@@ -1214,7 +1218,7 @@
               <div class="comp-label">2. Custom 3D Design</div>
               <model-viewer class="custom-part" src="example5/prius_center_tray_sunglasses.glb"
                 alt="Custom Sunglasses Tray Design" auto-rotate orientation="90deg -90deg 90deg" camera-controls
-                min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%" shadow-intensity="1.5"
+                disable-zoom min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%" shadow-intensity="1.5"
                 environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
               </model-viewer>
             </div>
@@ -1230,8 +1234,8 @@
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
-            <model-viewer src="example6/prius_console_web.glb" alt="3D Scanned Prius Console"
-              auto-rotate camera-controls min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
+            <model-viewer src="example6/prius_console_web.glb" alt="3D Scanned Prius Console" auto-rotate
+              camera-controls disable-zoom min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
               shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
             </model-viewer>
             <div class="comp-info">
@@ -1249,8 +1253,8 @@
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
-            <model-viewer src="example2/fenderflare_web.glb" alt="3D Scanned Fender Flare" auto-rotate
-              camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
+            <model-viewer src="example2/fenderflare_web.glb" alt="3D Scanned Fender Flare" auto-rotate camera-controls
+              disable-pan disable-zoom min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
               shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
             </model-viewer>
             <div class="comp-info">
@@ -1269,8 +1273,8 @@
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
-            <model-viewer src="example3/wheel_cover_web.glb" alt="3D Scanned Wheel Cover" auto-rotate
-              camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
+            <model-viewer src="example3/wheel_cover_web.glb" alt="3D Scanned Wheel Cover" auto-rotate camera-controls
+              disable-pan disable-zoom min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
               shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
             </model-viewer>
             <div class="comp-info">
@@ -1288,8 +1292,8 @@
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
-            <model-viewer src="example1/isofix_web.glb" alt="3D Scanned ISOFIX Seatbelt" auto-rotate
-              camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
+            <model-viewer src="example1/isofix_web.glb" alt="3D Scanned ISOFIX Seatbelt" auto-rotate camera-controls
+              disable-pan disable-zoom min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
               shadow-intensity="1.5" environment-image="neutral" exposure="0.7" touch-action="pan-y">
             </model-viewer>
             <div class="comp-info">
@@ -1307,9 +1311,10 @@
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
-            <model-viewer src="example4/keyfob_web.glb" alt="3D Scanned Keyfob" auto-rotate orientation="0deg 90deg 0deg"
-              camera-controls disable-pan min-camera-orbit="auto auto 90%" max-camera-orbit="auto auto 200%"
-              shadow-intensity="1.5" environment-image="neutral" exposure="0.7" loading="lazy" touch-action="pan-y">
+            <model-viewer src="example4/keyfob_web.glb" alt="3D Scanned Keyfob" auto-rotate
+              orientation="0deg 90deg 0deg" camera-controls disable-pan disable-zoom min-camera-orbit="auto auto 90%"
+              max-camera-orbit="auto auto 200%" shadow-intensity="1.5" environment-image="neutral" exposure="0.7"
+              loading="lazy" touch-action="pan-y">
             </model-viewer>
             <div class="comp-info">
               <h3>Automotive Keyfob</h3>
@@ -1404,12 +1409,12 @@
       </div>
       <div class="form-wrap fi">
         <div class="fg2" id="qForm">
-          <div class="fg"><label>First Name</label><input type="text" placeholder="Jane" /></div>
-          <div class="fg"><label>Email</label><input type="email" id="qEmail" placeholder="you@example.com" /></div>
+          <div class="fg"><label>First Name</label><input type="text" name="name" id="qName" placeholder="Jane" /></div>
+          <div class="fg"><label>Email</label><input type="email" name="email" id="qEmail" placeholder="you@example.com" /></div>
         </div>
         <div class="fg" id="qForm2">
           <label>Service Needed</label>
-          <select id="qService">
+          <select id="qService" name="service">
             <option value="" disabled selected>Select a service…</option>
             <option>3D Scanning</option>
             <option>Reverse Engineering / CAD</option>
@@ -1421,11 +1426,11 @@
         </div>
         <div class="fg" id="qForm3">
           <label>Project Description</label>
-          <textarea id="qDesc"
+          <textarea id="qDesc" name="description"
             placeholder="What's the object? What do you need done? Any size, material, or deadline info is helpful."></textarea>
         </div>
         <div class="upload-zone" id="qForm4">
-          <input type="file" accept="image/*,.pdf,.stl,.obj,.step"
+          <input type="file" name="file" id="qFile" accept="image/*,.pdf,.stl,.obj,.step"
             onchange="document.getElementById('ufn').textContent='📎 '+this.files[0].name" />
           <p>📎 <strong>Upload a photo or file</strong> (optional)</p>
           <p>Images, PDF, STL, STEP · max 20MB</p>
@@ -1461,17 +1466,50 @@
     document.querySelectorAll('.fi').forEach(el => io.observe(el));
 
     // Quote submit
-    function submitQ() {
+    async function submitQ() {
+      const name = document.getElementById('qName').value;
       const email = document.getElementById('qEmail').value;
       const svc = document.getElementById('qService').value;
       const desc = document.getElementById('qDesc').value;
-      if (!email || !svc || !desc) { alert('Please fill in your email, service, and description.'); return; }
-      ['qForm', 'qForm2', 'qForm3', 'qForm4'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) { el.style.opacity = '0.35'; el.style.pointerEvents = 'none'; }
-      });
-      document.querySelector('.form-foot').style.display = 'none';
-      document.getElementById('okMsg').style.display = 'block';
+      const file = document.getElementById('qFile').files[0];
+
+      if (!name || !email || !svc || !desc) { alert('Please fill in your name, email, service, and description.'); return; }
+
+      const btn = document.querySelector('.btn-fill');
+      const originalText = btn.innerText;
+      btn.innerText = 'Sending...';
+      btn.disabled = true;
+
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('service', svc);
+      formData.append('description', desc);
+      if (file) formData.append('file', file);
+
+      try {
+        const response = await fetch('/submit-quote', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          ['qForm', 'qForm2', 'qForm3', 'qForm4'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) { el.style.opacity = '0.35'; el.style.pointerEvents = 'none'; }
+          });
+          document.querySelector('.form-foot').style.display = 'none';
+          document.getElementById('okMsg').style.display = 'block';
+        } else {
+          alert('Submission failed. Please try again later.');
+          btn.innerText = originalText;
+          btn.disabled = false;
+        }
+      } catch (error) {
+        alert('An error occurred. Please check your connection.');
+        btn.innerText = originalText;
+        btn.disabled = false;
+      }
     }
 
     // Toggle hidden works
@@ -1488,8 +1526,21 @@
       btn.innerText = showing ? 'See Fewer Projects ↑' : 'See All Projects ↓';
     }
 
+    // 3D Model Zoom Toggle - Click to enable, Click away to disable
+    document.addEventListener('click', (e) => {
+      const isModelViewer = e.target.tagName === 'MODEL-VIEWER';
+      document.querySelectorAll('model-viewer').forEach(mv => {
+        if (isModelViewer && e.target === mv) {
+          mv.removeAttribute('disable-zoom');
+        } else {
+          mv.setAttribute('disable-zoom', '');
+        }
+      });
+    });
+
     // 3D Model Styling - Apply technical blue/white "Edge Faces" look to all viewers
     document.querySelectorAll('model-viewer').forEach(mv => {
+
       mv.addEventListener('load', () => {
         const isCustom = mv.classList.contains('custom-part');
 

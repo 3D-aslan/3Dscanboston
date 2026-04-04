@@ -3,7 +3,7 @@ setlocal
 
 echo.
 echo ==========================================
-echo    ScanCraft Studio - Local Preview
+echo    3D Scan Boston Studio - Local Preview
 echo ==========================================
 echo.
 echo [1/2] Launching your browser...
