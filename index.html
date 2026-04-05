@@ -10,24 +10,65 @@
   <meta name="keywords"
     content="3D Printing Boston, 3D Scanning Boston, Reverse Engineering Massachusetts, 3D scanning services MA, CAD design Boston, 3D scan to CAD">
   <meta name="author" content="3DScanBoston">
-  <link rel="canonical" href="https://3dscanboston.com"> <!-- Placeholder URL -->
+  <link rel="canonical" href="https://3dscanboston.com">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://3dscanboston.com/">
+  <meta property="og:title" content="3DScanBoston Studio — 3D Scanning, Design & Printing">
+  <meta property="og:description" content="Professional 3D scanning, 3D printing, and reverse engineering services in Boston, MA. High-precision CAD design and physical part replication.">
+  <meta property="og:image" content="https://3dscanboston.com/logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://3dscanboston.com/">
+  <meta property="twitter:title" content="3DScanBoston Studio — 3D Scanning, Design & Printing">
+  <meta property="twitter:description" content="Professional 3D scanning, 3D printing, and reverse engineering services in Boston, MA. High-precision CAD design and physical part replication.">
+  <meta property="twitter:image" content="https://3dscanboston.com/logo.png">
 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "3DScanBoston Studio",
-      "image": "https://3dscanboston.com/logo.png",
-      "description": "Professional 3D scanning, 3D printing and reverse engineering services in Boston, MA. We specialize in custom 3D design, symmetry restoration, and high-precision CAD modeling.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Boston",
-        "addressRegion": "MA",
-        "shippingDetails": "Serving all of Massachusetts and New England"
-      },
-      "url": "https://3dscanboston.com",
-      "priceRange": "$$",
-      "openingHours": "Mo-Fr 09:00-18:00"
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "name": "3DScanBoston Studio",
+          "image": "https://3dscanboston.com/logo.png",
+          "description": "Professional 3D scanning, 3D printing and reverse engineering services in Boston, MA. We specialize in custom 3D design, symmetry restoration, and high-precision CAD modeling.",
+          "email": "info@3dscanboston.com",
+          "url": "https://3dscanboston.com",
+          "priceRange": "$$",
+          "openingHours": "Mo-Fr 09:00-18:00",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Boston",
+            "addressRegion": "MA",
+            "addressCountry": "US"
+          },
+          "areaServed": {
+            "@type": "GeoShape",
+            "address": "New England, MA"
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "3D Scanning",
+          "provider": { "@type": "LocalBusiness", "name": "3DScanBoston Studio" },
+          "description": "High-precision 3D scanning services for objects of all sizes in Boston."
+        },
+        {
+          "@type": "Service",
+          "name": "3D Printing",
+          "provider": { "@type": "LocalBusiness", "name": "3DScanBoston Studio" },
+          "description": "Professional 3D printing services in PLA, ASA, and TPU materials."
+        },
+        {
+          "@type": "Service",
+          "name": "Reverse Engineering",
+          "provider": { "@type": "LocalBusiness", "name": "3DScanBoston Studio" },
+          "description": "Transform scans into accurate CAD models for manufacturing and prototyping."
+        }
+      ]
     }
   </script>
 
@@ -932,6 +973,35 @@
       resize: vertical;
     }
 
+    /* FORM ERROR STYLES */
+    .fg.error label {
+      color: #ff4d4d;
+    }
+
+    .fg.error input,
+    .fg.error select,
+    .fg.error textarea {
+      border-color: #ff4d4d;
+      background: rgba(255, 77, 77, 0.03);
+    }
+
+    .error-msg {
+      display: none;
+      font-size: 0.7rem;
+      color: #ff4d4d;
+      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    .fg.error .error-msg {
+      display: block;
+    }
+
+    .upload-zone.error {
+      border-color: #ff4d4d;
+      background: rgba(255, 77, 77, 0.03);
+    }
+
     .upload-zone {
       border: 1px dashed rgba(0, 212, 255, 0.2);
       border-radius: 8px;
@@ -1254,7 +1324,7 @@
         <div class="comparison-card fi">
           <div class="comp-media">
             <div class="comp-label">Original Photo</div>
-            <img src="example2/fenderflare_web.PNG" alt="Original Fender Flare">
+            <img src="example2/fenderflare_web.PNG" alt="3D Scanned Fender Flare for Symmetry Restoration - Boston 3D Printing">
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
@@ -1274,7 +1344,7 @@
         <div class="comparison-card fi hidden-card">
           <div class="comp-media">
             <div class="comp-label">Original Photo</div>
-            <img src="example3/wheel_cover_web.PNG" alt="Original Wheel Cover">
+            <img src="example3/wheel_cover_web.PNG" alt="3D Scanned Custom Wheel Cover for Prototyping in Boston">
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
@@ -1293,7 +1363,7 @@
         <div class="comparison-card fi hidden-card">
           <div class="comp-media">
             <div class="comp-label">Original Photo</div>
-            <img src="example1/20251209_122855.jpg" alt="Original ISOFIX Seat">
+            <img src="example1/20251209_122855.jpg" alt="3D Scan of ISOFIX Seat Bracket for Reverse Engineering">
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
@@ -1312,7 +1382,7 @@
         <div class="comparison-card fi hidden-card">
           <div class="comp-media">
             <div class="comp-label">Original Photo</div>
-            <img src="example4/keyfob_web.PNG" alt="Original Keyfob">
+            <img src="example4/keyfob_web.PNG" alt="High-Precision 3D Scan of Automotive Keyfob Shell">
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
@@ -1414,13 +1484,20 @@
       </div>
       <div class="form-wrap fi">
         <div class="fg2" id="qForm">
-          <div class="fg"><label>First Name</label><input type="text" name="name" id="qName" placeholder="Jane" /></div>
-          <div class="fg"><label>Email</label><input type="email" name="email" id="qEmail"
-              placeholder="you@example.com" /></div>
+          <div class="fg">
+            <label>First Name</label>
+            <input type="text" name="name" id="qName" placeholder="Jane" oninput="this.parentElement.classList.remove('error')" />
+            <span class="error-msg">Please enter your name</span>
+          </div>
+          <div class="fg">
+            <label>Email</label>
+            <input type="email" name="email" id="qEmail" placeholder="you@example.com" oninput="this.parentElement.classList.remove('error')" />
+            <span class="error-msg">Please enter a valid email address</span>
+          </div>
         </div>
         <div class="fg" id="qForm2">
           <label>Service Needed</label>
-          <select id="qService" name="service">
+          <select id="qService" name="service" onchange="this.parentElement.classList.remove('error')">
             <option value="" disabled selected>Select a service…</option>
             <option>3D Scanning</option>
             <option>Reverse Engineering / CAD</option>
@@ -1429,11 +1506,13 @@
             <option>Custom 3D Design</option>
             <option>Not sure — please advise</option>
           </select>
+          <span class="error-msg">Please select a service</span>
         </div>
         <div class="fg" id="qForm3">
           <label>Project Description</label>
-          <textarea id="qDesc" name="description"
+          <textarea id="qDesc" name="description" oninput="this.parentElement.classList.remove('error')"
             placeholder="What's the object? What do you need done? Any size, material, or deadline info is helpful."></textarea>
+          <span class="error-msg">Please describe your project</span>
         </div>
         <div class="upload-zone" id="qForm4">
           <input type="file" name="file" id="qFile" accept="image/*,.pdf,.stl,.obj,.step" multiple
@@ -1501,21 +1580,51 @@
 
     // Quote submit
     async function submitQ() {
-      const name = document.getElementById('qName').value.trim();
-      const email = document.getElementById('qEmail').value.trim();
-      const svc = document.getElementById('qService').value;
-      const desc = document.getElementById('qDesc').value.trim();
-      const fileInput = document.getElementById('qFile');
-      const files = Array.from(fileInput.files);
+      const nameEl = document.getElementById('qName');
+      const emailEl = document.getElementById('qEmail');
+      const svcEl = document.getElementById('qService');
+      const descEl = document.getElementById('qDesc');
+      const fileEl = document.getElementById('qFile');
 
-      if (!name || !email || !svc || !desc) { alert('Please fill in your name, email, service, and description.'); return; }
+      const name = nameEl.value.trim();
+      const email = emailEl.value.trim();
+      const svc = svcEl.value;
+      const desc = descEl.value.trim();
+      const files = Array.from(fileEl.files);
+
+      // Reset errors
+      document.querySelectorAll('.fg').forEach(el => el.classList.remove('error'));
+      document.getElementById('qForm4').classList.remove('error');
+
+      // Validation
+      let hasError = false;
+      if (!name) { nameEl.parentElement.classList.add('error'); hasError = true; }
+      
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) { 
+        emailEl.parentElement.classList.add('error'); 
+        hasError = true; 
+      }
+      
+      if (!svc) { svcEl.parentElement.classList.add('error'); hasError = true; }
+      if (!desc) { descEl.parentElement.classList.add('error'); hasError = true; }
+
+      if (hasError) {
+        window.scrollTo({ top: document.getElementById('qForm').offsetTop - 100, behavior: 'smooth' });
+        return;
+      }
 
       // Validation: Count
-      if (files.length > 5) { alert('Max 5 files allowed.'); return; }
+      if (files.length > 5) { 
+        document.getElementById('qForm4').classList.add('error');
+        alert('Max 5 files allowed.'); 
+        return; 
+      }
 
       // Validation: Total Size (18MB limit to account for Base64 overhead)
       const totalSize = files.reduce((acc, f) => acc + f.size, 0);
       if (totalSize > 18 * 1024 * 1024) {
+        document.getElementById('qForm4').classList.add('error');
         alert('Total file size too large. Please limit to 18MB total.');
         return;
       }
