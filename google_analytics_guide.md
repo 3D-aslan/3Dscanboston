@@ -12,7 +12,13 @@ Google Analytics is a free service that tracks and reports website traffic. It h
 
 ## How to set it up (Step-by-Step)
 
-1.  **Sign In:** Go to [analytics.google.com](https://analytics.google.com) and sign in with your business Gmail.
+> [!IMPORTANT]
+> **Make sure you are on the right website.**
+> Go to: **[https://analytics.google.com](https://analytics.google.com)**
+> 
+> *Note: If you see "Google for Developers" (like in your screenshot), you are on the wrong page! That is for developer news. You need the **Analytics Dashboard** at the link above.*
+
+1.  **Sign In:** Open **[analytics.google.com](https://analytics.google.com)** and sign in with your business Gmail.
 2.  **Create Account/Property:**
     *   Click the **Admin** gear icon (bottom left).
     *   Click **Create Property**.
