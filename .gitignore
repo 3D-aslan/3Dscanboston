@@ -14,3 +14,10 @@ node_modules/
 build/
 dist/
 Logo/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
