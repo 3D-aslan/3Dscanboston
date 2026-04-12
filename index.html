@@ -6,7 +6,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MSYLSYBC7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-1MSYLSYBC7');
@@ -21,19 +21,23 @@
     content="3D Printing Boston, 3D Scanning Boston, Reverse Engineering Massachusetts, 3D scanning services MA, CAD design Boston, 3D scan to CAD">
   <meta name="author" content="3DScanBoston">
   <link rel="canonical" href="https://3dscanboston.com/">
+  <link rel="icon" type="image/jpeg" href="favicon.jpg">
+  <link rel="apple-touch-icon" href="favicon.jpg">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://3dscanboston.com/">
   <meta property="og:title" content="3DScanBoston Studio — 3D Scanning, Design & Printing">
-  <meta property="og:description" content="Professional 3D scanning, 3D printing, and reverse engineering services in Boston, MA. High-precision CAD design and physical part replication.">
+  <meta property="og:description"
+    content="Professional 3D scanning, 3D printing, and reverse engineering services in Boston, MA. High-precision CAD design and physical part replication.">
   <meta property="og:image" content="https://3dscanboston.com/logo.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://3dscanboston.com/">
   <meta property="twitter:title" content="3DScanBoston Studio — 3D Scanning, Design & Printing">
-  <meta property="twitter:description" content="Professional 3D scanning, 3D printing, and reverse engineering services in Boston, MA. High-precision CAD design and physical part replication.">
+  <meta property="twitter:description"
+    content="Professional 3D scanning, 3D printing, and reverse engineering services in Boston, MA. High-precision CAD design and physical part replication.">
   <meta property="twitter:image" content="https://3dscanboston.com/logo.png">
 
   <script type="application/ld+json">
@@ -1334,7 +1338,8 @@
         <div class="comparison-card fi">
           <div class="comp-media">
             <div class="comp-label">Original Photo</div>
-            <img src="example2/fenderflare_web.PNG" alt="3D Scanned Fender Flare for Symmetry Restoration - Boston 3D Printing">
+            <img src="example2/fenderflare_web.PNG"
+              alt="3D Scanned Fender Flare for Symmetry Restoration - Boston 3D Printing">
           </div>
           <div class="comp-viewer">
             <div class="comp-label">Interactive 3D Scan</div>
@@ -1496,12 +1501,14 @@
         <div class="fg2" id="qForm">
           <div class="fg">
             <label>First Name</label>
-            <input type="text" name="name" id="qName" placeholder="Jane" oninput="this.parentElement.classList.remove('error')" />
+            <input type="text" name="name" id="qName" placeholder="Jane"
+              oninput="this.parentElement.classList.remove('error')" />
             <span class="error-msg">Please enter your name</span>
           </div>
           <div class="fg">
             <label>Email</label>
-            <input type="email" name="email" id="qEmail" placeholder="you@example.com" oninput="this.parentElement.classList.remove('error')" />
+            <input type="email" name="email" id="qEmail" placeholder="you@example.com"
+              oninput="this.parentElement.classList.remove('error')" />
             <span class="error-msg">Please enter a valid email address</span>
           </div>
         </div>
@@ -1609,13 +1616,13 @@
       // Validation
       let hasError = false;
       if (!name) { nameEl.parentElement.classList.add('error'); hasError = true; }
-      
+
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!email || !emailRegex.test(email)) { 
-        emailEl.parentElement.classList.add('error'); 
-        hasError = true; 
+      if (!email || !emailRegex.test(email)) {
+        emailEl.parentElement.classList.add('error');
+        hasError = true;
       }
-      
+
       if (!svc) { svcEl.parentElement.classList.add('error'); hasError = true; }
       if (!desc) { descEl.parentElement.classList.add('error'); hasError = true; }
 
@@ -1625,10 +1632,10 @@
       }
 
       // Validation: Count
-      if (files.length > 5) { 
+      if (files.length > 5) {
         document.getElementById('qForm4').classList.add('error');
-        alert('Max 5 files allowed.'); 
-        return; 
+        alert('Max 5 files allowed.');
+        return;
       }
 
       // Validation: Total Size (18MB limit to account for Base64 overhead)
